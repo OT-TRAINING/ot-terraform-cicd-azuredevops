@@ -10,11 +10,6 @@ variable "resource_group_location" {
   description = "(Required) Location where we want to implement code"
 }
 
-variable "rg_tags" {
-  type        = map(string)
-  description = "(Optional) Tags for Resource Group"
-}
-
 variable "lock_level_value" {
   type        = string
   default     = ""
@@ -43,11 +38,6 @@ variable "dns_servers" {
   type        = list(string)
 }
 
-variable "vnet_tags" {
-  type        = map(string)
-  description = "(Optional) Tags for Resource Group"
-}
-
 # /*-------------------------- Variable for Subnet -------------------------------------------*/
 
 variable "subnet_address_prefixes" {
@@ -65,42 +55,8 @@ variable "subnet_service_endpoints" {
   type        = list(string)
 }
 
-# /*---------------------------- Variables for Virtual Machine ----------------------------*/
 
-variable "vm_name" {
-  type        = list(string)
-  description = "(Required) Specifies the name of the Virtual Machine. Changing this forces a new resource to be created."
-}
-
-variable "vm_size" {
-  type        = string
-  description = "(Required) Specifies the size of the Virtual Machine"
-}
-
-variable "storage_image_reference" {
-  type        = any
-  description = "(Optional) A storage_image_reference block"
-}
-
-variable "os_profile" {
-  type        = any
-  description = "(Optional) An os_profile block. Required when create_option in the storage_os_disk block is set to FromImage"
-}
-
-variable "vm_location" {
-  type        = string
-  description = "VM location"
-}
-
-variable "delete_os_disk_on_termination" {
-  type = bool
-}
-
-variable "delete_data_disks_on_termination" {
-  type = bool
-}
-
-variable "availability_zones" {
-  type        = any
-  description = "(Optional) A list of a single item of the Availability Zone which the Virtual Machine should be allocated in."
+variable "tags" {
+   type        = map(string)
+   description = "Map of Tags those we want to Add"
 }
