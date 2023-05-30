@@ -1,28 +1,17 @@
-/*-------------------- Variable values for Resource Group ---------------------------------------*/
-
-resource_group_name     = "rg-himanshuPoC"
-resource_group_location = "Australia East"
-rg_tags = {
-  Name        = "rg-investcorp",
-  Environment = "staging",
-  Owner       = "DevOps"
-}
+resource_group_name         = ["rg-otms-qa-southbrazil"]
+resource_group_location     = "Brazil South"
+lock_level_value            = ""
+address_space               = [["10.0.0.0/16"]]
+vnet_name                   = ["vnet-otms-qa-southbrazil-001"]
+vnet_location               = ["Brazil South"]
+dns_servers                 = null
+create_ddos_protection_plan = [false]
+subnet_name                 = [["subnet-otms-qa-southbrazil-001", "subnet-fontendgw-otms-qa-southbrazil-001"]]
+subnet_address_prefixes     = [["10.0.0.0/24", "10.0.1.0/24"],]
+service_endpoints           = null
 
 tags = {
-  env  = "Dev"
-  group = "Team-Azure"
+  env  = "qa"
+  group = "Team_Azure"
   owner = "Devops"
 }
-/*-------------------- Variable values for Vnet ------------------------------------------------*/
-
-vnet_name                   = "vnet-himanshuPoC"
-address_space               = ["10.0.0.0/16"]
-create_ddos_protection_plan = false
-dns_servers                 = []
-# /*--------------------- Variable values for Subnet ----------------------------------------*/
-
-subnet_name              = ["sub-pub-himanshuPoC-1"]
-subnet_address_prefixes  = ["10.0.0.0/24"]
-subnet_service_endpoints = ["Microsoft.AzureActiveDirectory"]
-
-
