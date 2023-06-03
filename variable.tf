@@ -64,3 +64,78 @@ variable "tags" {
    type        = map(string)
    description = "Map of Tags those we want to Add"
 }
+
+
+
+## vm 
+
+variable "vm_name" {
+  description = "Provide vm Name"
+  type        = list(string)
+}
+
+
+variable "vm_size" {
+  description = "Specifies the VM Size"
+  type        = string
+}
+
+
+variable "vm_storage_image_reference_1" {
+  type        = any
+  description = "Specifies the VM image"
+}
+
+variable "vm_storage_os_disk" {
+  type        = any
+  description = "Specifies the VM storage disk"
+  default = [{
+    name              = "vmdisk1"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+    },
+    {
+      name              = "vmdisk2"
+      caching           = "ReadWrite"
+      create_option     = "FromImage"
+      managed_disk_type = "Standard_LRS"
+  }]
+}
+
+
+
+variable "vm_os_profile" {
+  type        = any
+  description = "Specifies the VM user and profile"
+  default = {
+    computer_name  = "hostname"
+    admin_username = "ubuntu"
+    admin_password = null
+
+  }
+}
+
+#-----------------nsg----
+variable "azurem_security_group_name" {
+  description = "nsg_name"
+  type        = list(string)
+}
+
+variable "azurem_custom_nsg_rules" {
+  type = list(object({
+    name                       = list(string)
+    priority                   = list(number)
+    direction                  = list(string)
+    access                     = list(string)
+    protocol                   = list(string)
+    source_port_range          = list(string)
+    destination_port_range     = list(string)
+    source_address_prefix      = list(string)
+    destination_address_prefix = list(string)
+  }))
+  description = "security_rule"
+}
+
+
+
