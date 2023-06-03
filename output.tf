@@ -39,6 +39,6 @@ output "subnet_address_prefixes" {
 }
 
 output "subnet_id" {
-  value = module.subnet[*].subnet_id
+  value = module.subnet.*.subnet_id
 
 }

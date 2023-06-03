@@ -63,7 +63,7 @@ azurem_custom_nsg_rules = [
     protocol                   = ["Tcp", "Tcp"]
     source_port_range          = ["*", "*"]
     destination_port_range     = ["3100", "3100"]
-    source_address_prefix      = ["10.0.0.0/16", "10.0.0.0/16"]  # Update with your trusted source IP ranges
+    source_address_prefix      = ["*", "*"]  # Update with your trusted source IP ranges
     destination_address_prefix = ["*", "*"]
   },
 ]
